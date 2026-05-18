@@ -5,7 +5,9 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
 import { RootState } from "@/redux/store";
 import { closeModal } from "@/redux/slices/modalSlice";
-
+// todo - hook up login buttons state changes for sign up and login,
+// and implement the actual auth logic for email/password and google sign in. 
+// also add forgot password functionality and error handling for all auth methods 
 export default function AuthModal() {
   const dispatch = useDispatch();
   const isOpen = useSelector((state: RootState) => state.modal.isOpen);

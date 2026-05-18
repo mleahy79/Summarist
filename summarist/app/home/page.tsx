@@ -9,8 +9,9 @@ import {
 } from "react-icons/fa";
 import HighlightCycle from "@/components/HighlightCycle";
 import { useState, useEffect } from "react";
-import { Crown, Leaf } from "lucide-react";
+import { Leaf } from "lucide-react";
 import { GiQueenCrown } from "react-icons/gi";
+import Nav from "@/components/nav/page";
 
 const cycleList1 = [
   "Enhance your knowledge",
@@ -43,6 +44,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Nav />
       <div className="flex justify-evenly mt-10 px-[95.5px]">
         <div className="flex flex-col items-start gap-6 max-w-[440px] mx-6">
           <h1 className="text-4xl font-black text-gray-800">
@@ -194,7 +196,7 @@ export default function HomePage() {
             </h2>
 
             <div className="bg-[#fff3d7] p-4 mb-8 rounded-sm">
-              <p className="font-light text-[#032b41] flex gap-2 mb-2">
+              <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Hanna.M
                 <div className="flex items-center ">
                   <FaStar size={16} className="text-blue-600" />
@@ -203,7 +205,7 @@ export default function HomePage() {
                   <FaStar size={16} className="text-blue-600" />
                   <FaStar size={16} className="text-blue-600" />
                 </div>
-              </p>
+              </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
                 This app has been a{" "}
                 <strong className="font-normal">game-changer</strong> for me!
@@ -212,7 +214,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="bg-[#fff3d7] p-4 mb-8 rounded-sm">
-              <p className="font-light text-[#032b41] flex gap-2 mb-2">
+              <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 David B.
                 <div className="flex items-center ">
                   <FaStar size={16} className="text-blue-600" />
@@ -221,7 +223,7 @@ export default function HomePage() {
                   <FaStar size={16} className="text-blue-600" />
                   <FaStar size={16} className="text-blue-600" />
                 </div>
-              </p>
+              </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
                 I love this app! It provides concise and{" "}
                 <strong className="font-normal">accurate summaries</strong> of
@@ -230,7 +232,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="bg-[#fff3d7] p-4 mb-8 rounded-sm">
-              <p className="font-light text-[#032b41] flex gap-2 mb-2">
+              <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Nathan S.
                 <div className="flex items-center ">
                   <FaStar size={16} className="text-blue-600" />
@@ -239,7 +241,7 @@ export default function HomePage() {
                   <FaStar size={16} className="text-blue-600" />
                   <FaStar size={16} className="text-blue-600" />
                 </div>
-              </p>
+              </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
                 This app is a great way to get the main takeaways from a book
                 without having to read the entire thing.{" "}
@@ -251,7 +253,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-[#fff3d7] p-4 mb-8 rounded-sm">
-              <p className="font-light text-[#032b41] flex gap-2 mb-2">
+              <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Ryan R.
                 <div className="flex items-center ">
                   <FaStar size={16} className="text-blue-600" />
@@ -260,7 +262,7 @@ export default function HomePage() {
                   <FaStar size={16} className="text-blue-600" />
                   <FaStar size={16} className="text-blue-600" />
                 </div>
-              </p>
+              </div>
               <p className="text-[#3994547] font-light text-base leading-[1.4] ">
                 If you're a busy person who{" "}
                 <strong className="font-normal">
@@ -279,14 +281,14 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-          <div className="max-w-[1070px] w-full mt-5 mb-20">
+          <div className="max-w-[1070px] w-full mt-5">
             <h2 className="text-[32px] mb-7 font-bold text-center">
               Start growing with Summarist now
             </h2>
             <div className="grid-cols-3 gap-10 w-full hidden md:grid">
               <div className="bg-[#d7e9ff] rounded-xl py-6 pt-6 pb-10 px-6 w-full items-center flex flex-col gap-4">
                 <GiQueenCrown size={40} className="text-blue-600" />
-                <h3 className="font-semibold text-4xl text-[#032b42]">
+                <h3 className="font-semibold text-4xl text-[#032b42               ]">
                   3 Milllion
                 </h3>
                 <p className="text-gray-700 font-light text-center text-base">
@@ -317,8 +319,82 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
+         </div>
       </div>
+      <footer className="bg-[#f1f6f4] w-full ">
+        <div className="max-w-[1070px] mx-auto px-6 py-16 grid grid-cols-4 gap-30">
+          <ul className="flex flex-col gap-1">
+            <li className="font-bold text-[#032b41] text-lg mb-1">Actions</li>
+            <li className="text-[#6b7280] text-sm">Summarist Magazine</li>
+            <li className="text-[#6b7280] text-sm">Cancel Subscription</li>
+            <li className="text-[#6b7280] text-sm">Help</li>
+            <li className="text-[#6b7280] text-sm">Contact us</li>
+          </ul>
+          <ul className="flex flex-col gap-1">
+            <li className="font-bold text-[#032b41] text-lg mb-1">Useful Links</li>
+            <li className="text-[#6b7280] text-sm">Pricing</li>
+            <li className="text-[#6b7280] text-sm">Summarist Business</li>
+            <li className="text-[#6b7280] text-sm">Gift Cards</li>
+            <li className="text-[#6b7280] text-sm">Authors &amp; Publishers</li>
+          </ul>
+          <ul className="flex flex-col gap-1">
+            <li className="font-bold text-[#032b41] text-lg mb-1">Company</li>
+            <li className="text-[#6b7280] text-sm">About</li>
+            <li className="text-[#6b7280] text-sm">Careers</li>
+            <li className="text-[#6b7280] text-sm">Partners</li>
+            <li className="text-[#6b7280] text-sm">Code of Conduct</li>
+          </ul>
+          <ul className="flex flex-col gap-1">
+            <li className="font-bold text-[#032b41] text-lg mb-1">Other</li>
+            <li className="text-[#6b7280] text-sm">Sitemap</li>
+            <li className="text-[#6b7280] text-sm">Legal Notice</li>
+            <li className="text-[#6b7280] text-sm">Terms of Service</li>
+            <li className="text-[#6b7280] text-sm">Privacy Policies</li>
+          </ul>
+        </div>
+        <div className="py-6 text-center text-[#032b41] font-semibold text-base">
+          Copyright &copy; 2023 Summarist.
+        </div>
+      </footer>
     </>
   );
 }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

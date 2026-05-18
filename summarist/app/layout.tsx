@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "../components/nav/page";
 import ReduxProvider from '@/components/ReduxProvider'
 import AuthModal from '@/components/AuthModal'
 import { Roboto } from "next/font/google";
+import SideBar from "@/components/sidebar/page";
+import Search from "@/components/search/page";
+
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -39,9 +41,14 @@ export default function RootLayout({
     >
       <body className={`${roboto.className} min-h-full flex flex-col`}>
         <ReduxProvider>
-          <Nav />
+          <div className="flex">
+          <SideBar />
+          <main className="flex-1">
           <AuthModal />
+          <Search />
           {children}
+          </main>
+          </div>
         </ReduxProvider>
       </body>
     </html>
