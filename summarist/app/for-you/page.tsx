@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Book {
@@ -8,6 +9,7 @@ interface Book {
   subTitle: string;
   imageLink: string;
   averageRating: number;
+  subscriptionRequired: boolean;
 }
 
 export default function ForYou() {
@@ -40,7 +42,6 @@ export default function ForYou() {
 
   return (
     <>
-      
       <div className="max-w-[1020px] mx-auto pt-10">
         <h1 className="text-[22px] font-bold mb-4">Selected just for you</h1>
 
@@ -64,17 +65,34 @@ export default function ForYou() {
         <p className="text-base font-extralight mb-8">
           We think you&apos;ll like these
         </p>
-        
-      
+
         <div className="flex gap-8 mt-6 overflow-x-auto snap-x snap-mandatory">
           {recommended.map((book) => (
-            <div key={book.id} className="snap-start cursor-pointer shrink-0 w-43">
-              <img src={book.imageLink} alt={book.title} width={172} height={172} />
-              <p className="font-bold">{book.title}</p>
-              <p className="text-sm font-extralight">{book.author}</p>
-              <p className="text-sm">{book.subTitle}</p>
-              <p className="text-sm font-extralight">{book.averageRating}</p>
-            </div>
+            <Link href={`/book/${book.id}`} key={book.id}>
+              <div className="snap-start cursor-pointer shrink-0 w-43">
+                {book.subscriptionRequired ? (
+                  <span
+                    className="bg-[#032b41]
+                 text-white text-xs w-auto h-auto py-0.5 px-2 float-right mb-3 rounded-full"
+                  >
+                    Premium
+                  </span>
+                ) : (
+                  <div className="h-8.5"></div>
+                )}
+
+                <img
+                  src={book.imageLink}
+                  alt={book.title}
+                  width={172}
+                  height={172}
+                />
+                <p className="font-bold">{book.title}</p>
+                <p className="text-sm font-extralight">{book.author}</p>
+                <p className="text-sm">{book.subTitle}</p>
+                <p className="text-sm font-extralight">{book.averageRating}</p>
+              </div>
+            </Link>
           ))}
         </div>
 
@@ -83,16 +101,35 @@ export default function ForYou() {
 
         <div className="flex gap-8 mt-6 overflow-x-auto snap-x snap-mandatory">
           {suggested.map((book) => (
-            <div key={book.id} className="snap-start cursor-pointer shrink-0 w-43">
-              <img src={book.imageLink} alt={book.title} width={172} height={172} />
-              <p className="font-bold">{book.title}</p>
-              <p className="text-sm font-extralight">{book.author}</p>
-              <p className="text-sm">{book.subTitle}</p>
-              <p className="text-sm font-extralight">{book.averageRating}</p>
-            </div>
+            <Link href={`/book/${book.id}`} key={book.id}>
+              key={book.id}
+              <div className="snap-start cursor-pointer shrink-0 w-43">
+                {book.subscriptionRequired ? (
+                  <span
+                    className="bg-[#032b41]
+                text-white text-xs w-auto h-auto py-0.5 px-2 float-right mb-3 rounded-full"
+                  >
+                    Premium
+                  </span>
+                ) : (
+                  <div className="h-8.5"></div>
+                )}
+
+                <img
+                  src={book.imageLink}
+                  alt={book.title}
+                  width={172}
+                  height={172}
+                />
+                <p className="font-bold">{book.title}</p>
+                <p className="text-sm font-extralight">{book.author}</p>
+                <p className="text-sm">{book.subTitle}</p>
+                <p className="text-sm font-extralight">{book.averageRating}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
-      </>
-    );
+    </>
+  );
 }
