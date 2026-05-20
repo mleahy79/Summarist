@@ -102,7 +102,6 @@ export default function ForYou() {
         <div className="flex gap-8 mt-6 overflow-x-auto snap-x snap-mandatory">
           {suggested.map((book) => (
             <Link href={`/book/${book.id}`} key={book.id}>
-              key={book.id}
               <div className="snap-start cursor-pointer shrink-0 w-43">
                 {book.subscriptionRequired ? (
                   <span

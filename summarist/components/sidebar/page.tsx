@@ -36,7 +36,7 @@ const SideBar = () => {
     if (pathname === "/" || pathname === "/home") return null;
 
   return (
-    <aside className="hidden md:flex bg-[#f1f6f4] flex-col items-center gap-6 w-[200px] shrink-0 max-h-screen p-4 sticky top-0">
+    <aside className={`hidden md:flex bg-[#f1f6f4] flex-col items-center gap-6 w-[200px] shrink-0 max-h-screen p-4 sticky top-0 overflow-y-auto${pathname.startsWith("/player") ? " pb-24" : ""}`}>
       <figure className="max-w-[200px]">
         <Image
           src={logo}

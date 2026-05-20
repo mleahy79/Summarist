@@ -115,8 +115,8 @@ export default function Book() {
           <img
             src={book.imageLink}
             alt={book.title}
-            width={3000}
-            height={3000}
+            width={172}
+            height={172}
           />
         </div>
       </div>

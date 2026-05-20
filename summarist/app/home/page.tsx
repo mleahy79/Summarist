@@ -353,7 +353,7 @@ export default function HomePage() {
           </ul>
         </div>
         <div className="py-6 text-center text-[#032b41] font-semibold text-base">
-          Copyright &copy; 2023 Summarist.
+          Copyright &copy; 2026 Summarist.
         </div>
       </footer>
     </>

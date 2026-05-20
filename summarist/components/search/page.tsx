@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
 
@@ -15,6 +15,13 @@ export default function Search() {
   const pathname = usePathname();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Book[]>([]);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+  }, []);
 
   if (pathname === "/" || pathname === "/home") return null;
 
@@ -23,17 +30,20 @@ export default function Search() {
     setResults([]);
   };
 
-  const handleSearch = async (value: string) => {
+  const handleSearch = (value: string) => {
     setQuery(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
     if (!value) {
-      setResults([])
+      setResults([]);
       return;
     }
-    const res = await fetch(
-      `https://us-central1-summaristt.cloudfunctions.net/getBooksByAuthorOrTitle?search=${value}`,
-    );
-    const data = await res.json();
-    setResults(data);
+    debounceRef.current = setTimeout(async () => {
+      const res = await fetch(
+        `https://us-central1-summaristt.cloudfunctions.net/getBooksByAuthorOrTitle?search=${value}`,
+      );
+      const data = await res.json();
+      setResults(data);
+    }, 300);
   };
 
   return (
