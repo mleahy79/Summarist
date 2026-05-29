@@ -62,8 +62,9 @@ export default function AuthModal() {
   }
 
   async function handleGuestSignIn() {
+    setError("");
     try {
-      await signInAnonymously(auth);
+      await signInWithEmailAndPassword(auth, "guest@summarist.com", "guest1234");
       dispatch(closeModal());
       router.push("/for-you");
     } catch (err: unknown) {
