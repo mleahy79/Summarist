@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import Link from "next/link";
 
 interface Book {
   id: string;
@@ -61,9 +62,11 @@ export default function Search() {
           {results.length > 0 && (
             <div className="absolute top-12 right-0 bg-white border mt-12 border-gray-200 rounded-lg shadow-xl w-102 max-h-160 z-50">
               {results.map((book: Book) => (
-                <div
+                <Link
                   key={book.id}
-                  className="flex items-center gap-3 p-2 border-b border-gray-200 p-4 hover:bg-gray-50 cursor-pointer"
+                  href={`/book/${book.id}`}
+                  onClick={handleClear}
+                  className="flex items-center gap-3 p-2 border-b border-gray-200 p-4 hover:bg-gray-50"
                 >
                   <img
                     src={book.imageLink}
@@ -74,7 +77,7 @@ export default function Search() {
                     <p className="text-base pb-1.5 font-bold">{book.title}</p>
                     <p className="text-sm pb-1.5 font-light text-gray-500">{book.author}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 import {
   signInWithPopup,
   signInWithEmailAndPassword,
@@ -14,6 +15,7 @@ import { closeModal } from "@/redux/slices/modalSlice";
 
 export default function AuthModal() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const isOpen = useSelector((state: RootState) => state.modal.isOpen);
   const initialMode = useSelector((state: RootState) => state.modal.initialMode);
   const [email, setEmail] = useState("");
@@ -53,6 +55,7 @@ export default function AuthModal() {
     try {
       await signInWithPopup(auth, googleProvider);
       dispatch(closeModal());
+      router.push("/for-you");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Google sign-in failed");
     }
@@ -62,6 +65,7 @@ export default function AuthModal() {
     try {
       await signInAnonymously(auth);
       dispatch(closeModal());
+      router.push("/for-you");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Guest sign-in failed");
     }
@@ -76,6 +80,7 @@ export default function AuthModal() {
         await createUserWithEmailAndPassword(auth, email, password);
       }
       dispatch(closeModal());
+      router.push("/for-you");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Authentication failed");
     }

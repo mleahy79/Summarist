@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import {
-  AiOutlineFileText,
-  AiOutlineBulb,
-  AiOutlineAudio,
-  AiOutlineStar,
+  AiFillFileText,
+  AiFillBulb,
+  AiFillAudio,
+  AiFillStar,
 } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 import HighlightCycle from "@/components/HighlightCycle";
@@ -82,7 +82,7 @@ export default function HomePage() {
           </h2>
           <div className="flex justify-center gap-8 mt-12">
             <div className="flex flex-col items-center gap-4 min-w-[314px] max-w-[200px] text-center">
-              <AiOutlineFileText size={60} className="text-[#032b42]" />
+              <AiFillFileText size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Read or listen
               </h3>
@@ -91,7 +91,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-4 max-w-[200px] min-w-[314px] text-center">
-              <AiOutlineBulb size={60} className="text-[#032b42]" />
+              <AiFillBulb size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Find your next read
               </h3>
@@ -100,7 +100,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-4 max-w-[200px] min-w-[314px] text-center">
-              <AiOutlineAudio size={60} className="text-[#032b42]" />
+              <AiFillAudio size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Briefcasts
               </h3>
@@ -192,7 +192,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="max-w-[600px] w-full mt-20 mb-20">
+          <div className="max-w-[600px] w-full mt-20 mb-18">
             <h2 className="text-[32px] mb-7 font-bold text-center">
               What our members say
             </h2>
@@ -201,11 +201,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Hanna.M
                 <div className="flex items-center ">
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
@@ -219,11 +219,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 David B.
                 <div className="flex items-center ">
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
@@ -237,11 +237,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Nathan S.
                 <div className="flex items-center ">
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
@@ -258,11 +258,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Ryan R.
                 <div className="flex items-center ">
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
-                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
+                  <AiFillStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] font-light text-base leading-[1.4] ">
@@ -283,7 +283,7 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-          <div className="max-w-[1070px] w-full mt-5">
+          <div className="max-w-[1070px] w-full mt-3">
             <h2 className="text-[32px] mb-7 font-bold text-center">
               Start growing with Summarist now
             </h2>
@@ -299,10 +299,10 @@ export default function HomePage() {
               </div>
               <div className="bg-[#d7e9ff] rounded-xl py-6 pt-6 pb-10 px-6 w-full items-center flex flex-col gap-4">
                 <div className="flex items-center pt-5 gap-2">
-                  <AiOutlineStar size={20} className="text-blue-700" />
-                  <AiOutlineStar size={20} className="text-blue-700" />
-                  <AiOutlineStar size={20} className="text-blue-700" />
-                  <AiOutlineStar size={20} className="text-blue-700" />
+                  <AiFillStar size={20} className="text-blue-700" />
+                  <AiFillStar size={20} className="text-blue-700" />
+                  <AiFillStar size={20} className="text-blue-700" />
+                  <AiFillStar size={20} className="text-blue-700" />
                   <BsStarHalf size={20} className="text-blue-700" />
                 </div>
                 <h3 className="font-semibold text-4xl text-[#032b42]">

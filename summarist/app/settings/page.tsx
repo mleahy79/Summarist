@@ -6,21 +6,18 @@ import { useSubscription, SubscriptionTier } from "@/hooks/useSubscription";
 
 const TIER_STYLES: Record<
   SubscriptionTier,
-  { badge: string; icon: string; description: string }
+  { badge: string; description: string }
 > = {
   Basic: {
     badge: "bg-gray-100 text-gray-600 border border-gray-200",
-    icon: "📖",
     description: "Access to free books and summaries.",
   },
   Premium: {
     badge: "bg-blue-50 text-blue-700 border border-blue-200",
-    icon: "⭐",
     description: "Unlimited access to all book summaries.",
   },
   "Premium Plus": {
     badge: "bg-amber-50 text-amber-700 border border-amber-200",
-    icon: "✦",
     description: "Unlimited access + audio player for all books.",
   },
 };
@@ -84,7 +81,6 @@ export default function SettingsPage() {
                   <div>
                     <p className="text-xs text-[#6b7280] mb-2">Current plan</p>
                     <div className="flex items-center gap-2">
-                      <span className="text-lg">{styles.icon}</span>
                       <span
                         className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${styles.badge}`}
                       >

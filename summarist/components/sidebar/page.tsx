@@ -11,9 +11,12 @@ import {
   AiOutlineQuestionCircle,
 } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
-import { LuLogOut } from "react-icons/lu";
+import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { RiBallPenLine } from "react-icons/ri";
 import { usePathname } from "next/navigation";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 const topLinks =[
     {href: "/for-you", label: 'For you', icon: AiOutlineHome },
@@ -24,7 +27,6 @@ const topLinks =[
 const bottomLinks =[
     {href: '/settings', label: 'Settings', icon: AiOutlineSetting },
     {href: "/support", label: 'Help & Support', icon: AiOutlineQuestionCircle },
-    {href: "/login", label: 'Login', icon: LuLogOut },
 ]
 
 
@@ -32,6 +34,7 @@ const bottomLinks =[
 const SideBar = () => {
     const pathname = usePathname()
     const dispatch = useDispatch();
+    const [user] = useAuthState(auth);
 
     if (pathname === "/" || pathname === "/home") return null;
 
@@ -63,13 +66,17 @@ const SideBar = () => {
                     key={href}
                     className={`flex  gap-4 py-4 p-9 justify-start font-normal text-[#032b41] border-l-4 focus:border-green-400 ${ pathname === href ? "border-l-green-400" : "border-transparent"}`}>
                     <Icon size={25} />
-                    {href === "/login" ? (
-                    <button onClick={() => dispatch(openModal())} className="cursor-pointer">{label}</button>
-                    ) : (
                     <Link href={href}>{label}</Link>
-                    )}
             </li>
             ) )}
+            <li className="flex gap-4 py-4 p-9 justify-start font-normal text-[#032b41] border-l-4 border-transparent">
+                {user ? <LuLogOut size={25} /> : <LuLogIn size={25} />}
+                {user ? (
+                    <button onClick={() => signOut(auth)} className="cursor-pointer">Logout</button>
+                ) : (
+                    <button onClick={() => dispatch(openModal())} className="cursor-pointer">Login</button>
+                )}
+            </li>
         </ul>
 
       </nav>
