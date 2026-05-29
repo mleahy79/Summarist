@@ -9,7 +9,7 @@ export default function HighlightCycle({ items, activeIndex }: HighlightCyclePro
     return (
         <ul>
             {items.map((item, index) => (
-                <li key={index} className={ `text-3xl mb-4 font-bold transition-colors duration-500 ${
+                <li key={index} className={ `text-3xl mb-4 font-bold transition-colors duration-200 ${
                     index === activeIndex ? 'text-[#2bd97c]' : 'text-[#6b757b]'}`}
                     >
                     {item}

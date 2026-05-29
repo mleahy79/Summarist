@@ -5,26 +5,26 @@ import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { openModal } from "@/redux/slices/modalSlice";
 import {
-  FaMagnifyingGlass,
-  FaHouse,
-  FaBookmark,
-  FaGear,
-  FaHighlighter,
-  FaCircleQuestion,
-  FaArrowRightToBracket,
-} from "react-icons/fa6";
+  AiOutlineSearch,
+  AiOutlineHome,
+  AiOutlineSetting,
+  AiOutlineQuestionCircle,
+} from "react-icons/ai";
+import { BsBookmark } from "react-icons/bs";
+import { LuLogOut } from "react-icons/lu";
+import { RiBallPenLine } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 
 const topLinks =[
-    {href: "/for-you", label: 'For you', icon: FaHouse },
-    {href: "/library", label: 'My library', icon: FaBookmark},
-    {href: "/highlights", label: 'Highlights', icon: FaHighlighter},
-    {href: "/search", label: 'Search', icon: FaMagnifyingGlass },
+    {href: "/for-you", label: 'For you', icon: AiOutlineHome },
+    {href: "/library", label: 'My library', icon: BsBookmark},
+    {href: "/highlights", label: 'Highlights', icon: RiBallPenLine},
+    {href: "/search", label: 'Search', icon: AiOutlineSearch },
 ]
 const bottomLinks =[
-    {href: '/settings', label: 'Settings', icon: FaGear },
-    {href: "/support", label: 'Help & Support', icon: FaCircleQuestion },
-    {href: "/login", label: 'Login', icon: FaArrowRightToBracket },
+    {href: '/settings', label: 'Settings', icon: AiOutlineSetting },
+    {href: "/support", label: 'Help & Support', icon: AiOutlineQuestionCircle },
+    {href: "/login", label: 'Login', icon: LuLogOut },
 ]
 
 

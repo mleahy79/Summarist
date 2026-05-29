@@ -1,6 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  AiOutlineStar,
+  AiOutlineClockCircle,
+} from "react-icons/ai";
+import { Play } from "lucide-react";
+import AudioDuration from "@/components/AudioDuration";
 
 interface Book {
   id: string;
@@ -8,6 +14,7 @@ interface Book {
   author: string;
   subTitle: string;
   imageLink: string;
+  audioLink: string;
   averageRating: number;
   subscriptionRequired: boolean;
 }
@@ -58,6 +65,14 @@ export default function ForYou() {
           <div className="flex-1 flex flex-col gap-2">
             <h3 className="font-bold text-lg">{selected?.title}</h3>
             <p className="text-gray-500 text-sm">{selected?.author}</p>
+            <div className="flex items-center gap-2">
+              <Link href={`/player/${selected?.id}`}>
+                <button className="text-white bg-[#042330] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-90 transition-opacity">
+                  <Play size={22} fill="currentColor" strokeWidth={0} className="translate-x-0.5 pr-0.5" />
+                </button>
+              </Link>
+              {selected?.audioLink && <AudioDuration src={selected.audioLink} />}
+            </div>
           </div>
         </div>
 
@@ -90,7 +105,10 @@ export default function ForYou() {
                 <p className="font-bold">{book.title}</p>
                 <p className="text-sm font-extralight">{book.author}</p>
                 <p className="text-sm">{book.subTitle}</p>
-                <p className="text-sm font-extralight">{book.averageRating}</p>
+                <div className="flex gap-2 pt-2">
+                <p className="flex items-center gap-1 text-sm font-light"><AiOutlineClockCircle size={15}/> <AudioDuration src={book.audioLink} /></p>
+                <p className="text-sm font-light flex"><AiOutlineStar size={15} className="text-[#032b41] mx-1" />{book.averageRating}</p>
+                </div>
               </div>
             </Link>
           ))}
@@ -123,7 +141,10 @@ export default function ForYou() {
                 <p className="font-bold">{book.title}</p>
                 <p className="text-sm font-extralight">{book.author}</p>
                 <p className="text-sm">{book.subTitle}</p>
-                <p className="text-sm font-extralight">{book.averageRating}</p>
+                  <div className="flex gap-2 pt-2">
+                <p className="flex items-center gap-1 text-sm font-light"><AiOutlineClockCircle size={15}/> <AudioDuration src={book.audioLink} /></p>
+                <p className="text-sm font-light flex"><AiOutlineStar size={15} className="text-[#032b41] mx-1" />{book.averageRating}</p>
+                </div>
               </div>
             </Link>
           ))}

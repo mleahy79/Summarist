@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 
 interface Book {
   id: string;
@@ -81,8 +81,8 @@ export default function Search() {
           <div className="absolute right-3 flex items-center justify-center">
 
           {query ? (
-           <button onClick={handleClear} aria-label="Clear Search"><FaXmark size={20} className="text-[#032b41] text-center" /></button> ):(
-          <FaMagnifyingGlass
+           <button onClick={handleClear} aria-label="Clear Search"><AiOutlineClose size={20} className="text-[#032b41] text-center" /></button> ):(
+          <AiOutlineSearch
             size={20}
             className="text-[#032b41]"
             />

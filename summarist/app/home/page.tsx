@@ -1,17 +1,19 @@
 "use client";
 import Image from "next/image";
 import {
-  FaFileAlt,
-  FaLightbulb,
-  FaMicrophone,
-  FaStar,
-  FaStarHalfAlt,
-} from "react-icons/fa";
+  AiOutlineFileText,
+  AiOutlineBulb,
+  AiOutlineAudio,
+  AiOutlineStar,
+} from "react-icons/ai";
+import { BsStarHalf } from "react-icons/bs";
 import HighlightCycle from "@/components/HighlightCycle";
 import { useState, useEffect } from "react";
 import { Leaf } from "lucide-react";
 import { GiQueenCrown } from "react-icons/gi";
 import Nav from "@/components/nav/page";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/redux/slices/modalSlice";
 
 const cycleList1 = [
   "Enhance your knowledge",
@@ -33,7 +35,7 @@ const cycleList2 = [
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
-
+   const dispatch = useDispatch();
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % cycleList1.length);
@@ -59,7 +61,7 @@ export default function HomePage() {
             and even people who don&apos;t like to read.
           </p>
 
-          <button className="bg-[#2bd97c] text-[#032b42] w-full h-11 rounded font-medium flex items-center justify-center">
+          <button  onClick={() => dispatch(openModal())} className="bg-[#2bd97c] text-[#032b42] w-full h-11 cursor-pointer rounded font-medium flex items-center justify-center">
             Login
           </button>
         </div>
@@ -80,7 +82,7 @@ export default function HomePage() {
           </h2>
           <div className="flex justify-center gap-8 mt-12">
             <div className="flex flex-col items-center gap-4 min-w-[314px] max-w-[200px] text-center">
-              <FaFileAlt size={60} className="text-[#032b42]" />
+              <AiOutlineFileText size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Read or listen
               </h3>
@@ -89,7 +91,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-4 max-w-[200px] min-w-[314px] text-center">
-              <FaLightbulb size={60} className="text-[#032b42]" />
+              <AiOutlineBulb size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Find your next read
               </h3>
@@ -98,7 +100,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-4 max-w-[200px] min-w-[314px] text-center">
-              <FaMicrophone size={60} className="text-[#032b42]" />
+              <AiOutlineAudio size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Briefcasts
               </h3>
@@ -199,11 +201,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Hanna.M
                 <div className="flex items-center ">
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
@@ -217,11 +219,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 David B.
                 <div className="flex items-center ">
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
@@ -235,11 +237,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Nathan S.
                 <div className="flex items-center ">
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] leading-snug font-light text-base">
@@ -256,11 +258,11 @@ export default function HomePage() {
               <div className="font-light text-[#032b41] flex gap-2 mb-2">
                 Ryan R.
                 <div className="flex items-center ">
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
-                  <FaStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
+                  <AiOutlineStar size={16} className="text-blue-600" />
                 </div>
               </div>
               <p className="text-[#3994547] font-light text-base leading-[1.4] ">
@@ -274,8 +276,8 @@ export default function HomePage() {
             </div>
             <div className=" flex justify-center">
               <button
-                className="bg-[#2bd97c] text-[#032b42]  min-w-[300px] h-11 rounded 
-              font-medium flex items-center justify-center"
+               onClick={() => dispatch(openModal())} className="bg-[#2bd97c] text-[#032b42]  min-w-[300px] h-11 rounded 
+              font-medium flex items-center cursor-pointer justify-center"
               >
                 Login
               </button>
@@ -297,11 +299,11 @@ export default function HomePage() {
               </div>
               <div className="bg-[#d7e9ff] rounded-xl py-6 pt-6 pb-10 px-6 w-full items-center flex flex-col gap-4">
                 <div className="flex items-center pt-5 gap-2">
-                  <FaStar size={20} className="text-blue-700" />
-                  <FaStar size={20} className="text-blue-700" />
-                  <FaStar size={20} className="text-blue-700" />
-                  <FaStar size={20} className="text-blue-700" />
-                  <FaStarHalfAlt size={20} className="text-blue-700" />
+                  <AiOutlineStar size={20} className="text-blue-700" />
+                  <AiOutlineStar size={20} className="text-blue-700" />
+                  <AiOutlineStar size={20} className="text-blue-700" />
+                  <AiOutlineStar size={20} className="text-blue-700" />
+                  <BsStarHalf size={20} className="text-blue-700" />
                 </div>
                 <h3 className="font-semibold text-4xl text-[#032b42]">
                   4.5 Stars

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Play, Pause } from "lucide-react";
 import { MdReplay10, MdForward10 } from "react-icons/md";
+import { formatTime } from "@/lib/formatTime";
 
 interface Book {
   id: string;
@@ -15,11 +16,6 @@ interface Book {
   audioLink: string;
 }
 
-function formatTime(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-}
 
 export default function PlayerPage() {
   const { id } = useParams();
