@@ -110,7 +110,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="max-w-[1070px] w-full mt-20">
-            <div className="grid-cols-2 mt-5 gap-10 w-full hidden md:grid">
+            <div className="md:grid-cols-2 mt-5 gap-10 w-full hidden md:grid">
               <HighlightCycle items={cycleList1} activeIndex={activeIndex} />
               <div className="bg-[#f1f6f4] rounded-sm py-[40px] px-[24px] w-full flex flex-col gap-8">
                 <div className="flex items-start pl-8">
@@ -287,7 +287,7 @@ export default function HomePage() {
             <h2 className="text-[32px] mb-7 font-bold text-center">
               Start growing with Summarist now
             </h2>
-            <div className="grid-cols-3 gap-10 w-full hidden md:grid">
+            <div className="md:grid-cols-3  gap-10 w-full hidden md:grid">
               <div className="bg-[#d7e9ff] rounded-xl py-6 pt-6 pb-10 px-6 w-full items-center flex flex-col gap-4">
                 <GiQueenCrown size={40} className="text-blue-600" />
                 <h3 className="font-semibold text-4xl text-[#032b42               ]">
@@ -324,7 +324,7 @@ export default function HomePage() {
          </div>
       </div>
       <footer className="bg-[#f1f6f4] w-full ">
-        <div className="max-w-[1070px] mx-auto px-6 py-16 grid grid-cols-4 gap-30">
+        <div className="max-w-[1070px] mx-auto md:px-6 py-16 md:grid grid-cols-4 hidden md:gap-30">
           <ul className="flex flex-col gap-1">
             <li className="font-bold text-[#032b41] text-lg mb-1">Actions</li>
             <li className="text-[#6b7280] text-sm">Summarist Magazine</li>
