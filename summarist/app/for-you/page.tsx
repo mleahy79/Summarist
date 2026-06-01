@@ -55,20 +55,22 @@ useEffect(() => {
 if (loading) return <ForYouSkeleton />;
 return (
   <>
-      <div className="max-w-[1020px] mx-auto pt-10">
+   <div className="max-w-[1020px] mx-auto pt-10 px-4 md:px-6 self-start">
         <h1 className="text-[22px] font-bold mb-4">Selected just for you</h1>
 
-        <div className="h-46 bg-[#fbefd6] flex w-2/3 p-4">
-          <div className="flex flex-1">
-            <p className="text-base max-w-55 text-[#032b41]">
-              {selected?.subTitle}
-            </p>
+        <div className="bg-[#fbefd6] flex w-full md:w-2/3 p-4">
+          {/* 1 – subtitle (hidden on mobile) */}
+          <div className="hidden md:flex items-center flex-1 pr-3">
+            <p className="text-base text-[#032b41]">{selected?.subTitle}</p>
           </div>
-          <div className="w-px bg-gray-300"></div>
-          <div className="flex items-end ml-2 p-2 w-38">
-            <img src={selected?.imageLink} alt={selected?.title} />
+          {/* 2 – divider (hidden on mobile) */}
+          <div className="hidden md:block w-px bg-gray-300 self-stretch mx-2 shrink-0" />
+          {/* 3 – cover image */}
+          <div className="flex items-end p-2 w-28 shrink-0">
+            <img src={selected?.imageLink} alt={selected?.title} className="w-full h-auto" />
           </div>
-          <div className="flex-1 flex flex-col gap-2">
+          {/* 4 – title + author + play */}
+          <div className="flex flex-col gap-2 flex-1 justify-center pl-3">
             <h3 className="font-bold text-lg">{selected?.title}</h3>
             <p className="text-gray-500 text-sm">{selected?.author}</p>
             <div className="flex items-center gap-2">
@@ -89,7 +91,7 @@ return (
 
         <div className="flex gap-8 mt-6 overflow-x-auto snap-x snap-mandatory">
           {recommended.map((book) => (
-            <Link href={`/book/${book.id}`} key={book.id}>
+            <Link href={`/book/${book.id}`} key={book.id} className="hover:opacity-75 transition-opacity">
               <div className="snap-start cursor-pointer shrink-0 w-43">
                 {book.subscriptionRequired ? (
                   <span
@@ -125,7 +127,7 @@ return (
 
         <div className="flex gap-8 mt-6 overflow-x-auto snap-x snap-mandatory">
           {suggested.map((book) => (
-            <Link href={`/book/${book.id}`} key={book.id}>
+            <Link href={`/book/${book.id}`} key={book.id} className="hover:opacity-75 transition-opacity">
               <div className="snap-start cursor-pointer shrink-0 w-43">
                 {book.subscriptionRequired ? (
                   <span

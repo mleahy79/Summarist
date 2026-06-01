@@ -86,8 +86,8 @@ export default function Book() {
 
   return (
     <div className="flex justify-center">
-      <div className="flex py-10 max-w-[1080px]  mr-6">
-        <div className="flex flex-col mx-4 ">
+      <div className="flex flex-col md:flex-row py-10 max-w-270 px-4">
+        <div className="flex flex-col">
           <p className="text-[32px]  mb-2 font-bold ">{book.title}</p>
           <p className="text-base mb-3 font-bold">{book.author}</p>
           <p className="text-xl mb-3 pb-3 border-b border-gray-300 font-light ">
@@ -153,12 +153,11 @@ export default function Book() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="shrink-0 w-full md:w-75 mb-6 md:mb-0 md:ml-8 order-first md:order-last">
           <img
             src={book.imageLink}
             alt={book.title}
-            width={3000}
-            height={3000}
+            className="w-48 md:w-full h-auto mx-auto"
           />
         </div>
       </div>
@@ -169,10 +168,15 @@ export default function Book() {
 function BookSkeleton() {
   return (
     <div className="flex justify-center animate-pulse">
-      <div className="flex py-10 max-w-[1080px] mr-6">
+      <div className="flex flex-col md:flex-row py-10 max-w-270 px-4">
 
-        {/* Left column */}
-        <div className="flex flex-col mx-4">
+        {/* Image — right on desktop, top on mobile */}
+        <div className="w-48 md:w-75 shrink-0 mb-6 md:mb-0 md:ml-8 mx-auto md:mx-0 order-first md:order-last">
+          <div className="w-full aspect-square bg-gray-200 rounded" />
+        </div>
+
+        {/* Text content */}
+        <div className="flex flex-col mx-4 md:mx-0">
           <div className="h-8 w-80 bg-gray-200 rounded mb-2" />   {/* title */}
           <div className="h-4 w-48 bg-gray-200 rounded mb-3" />   {/* author */}
           <div className="h-5 w-96 bg-gray-200 rounded mb-3 pb-3 border-b border-gray-300" /> {/* subtitle */}
@@ -219,8 +223,6 @@ function BookSkeleton() {
           </div>
         </div>
 
-        {/* Right column — image */}
-        <div className="w-[300px] h-[300px] bg-gray-200 rounded shrink-0" />
 
       </div>
     </div>

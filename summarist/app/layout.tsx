@@ -6,6 +6,7 @@ import AuthModal from '@/components/AuthModal'
 import { Roboto } from "next/font/google";
 import SideBar from "@/components/sidebar/page";
 import Search from "@/components/search/page";
+import MobileNav from "@/components/mobile-nav/page";
 
 
 const roboto = Roboto({
@@ -39,15 +40,16 @@ export default function RootLayout({
       lang="en"
       className={`${roboto.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className={`${roboto.className} min-h-full flex flex-col`}>
+      <body className={`${roboto.className}`}>
         <ReduxProvider>
-          <div className="flex">
+          <div className="min-h-screen">
           <SideBar />
-          <main className="flex-1">
+          <main className="md:ml-50 pb-16 md:pb-0">
           <AuthModal />
           <Search />
           {children}
           </main>
+          <MobileNav />
           </div>
         </ReduxProvider>
       </body>

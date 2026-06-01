@@ -48,8 +48,8 @@ export default function Search() {
   };
 
   return (
-    <div className="h-[79px] w-auto flex px-10 mx-9 border-b border-gray-200">
-      <div className="flex h-full w-[1200px] justify-end">
+    <div className="hidden md:flex h-19.75 w-auto md:px-10 md:mx-9 border-b border-gray-200">
+      <div className="flex h-full w-full max-w-[1200px] justify-end">
         <div className="relative flex items-center">
           <input
             type="text"

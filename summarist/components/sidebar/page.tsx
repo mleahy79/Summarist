@@ -39,8 +39,8 @@ const SideBar = () => {
     if (pathname === "/" || pathname === "/home") return null;
 
   return (
-    <aside className={`hidden md:flex bg-[#f1f6f4] flex-col items-center gap-6 w-[200px] shrink-0 max-h-screen p-4 sticky top-0 overflow-y-auto${pathname.startsWith("/player") ? " pb-24" : ""}`}>
-      <figure className="max-w-[200px]">
+    <aside className={`hidden md:flex fixed left-0 top-0 h-screen w-50 bg-[#f1f6f4] flex-col items-center gap-6 p-4 overflow-y-auto z-20${pathname.startsWith("/player") ? " pb-24" : ""}`}>
+      <figure className="max-w-50">
         <Image
           src={logo}
           className="nav_img w-full h-full"
@@ -49,13 +49,13 @@ const SideBar = () => {
           height={90}
         />
       </figure>
-      <nav className="list-none flex flex-col flex-1 mt-4 gap-4">
+      <nav className="list-none flex flex-col flex-1 w-full mt-4">
         <ul>
             {topLinks.map(({href, label, icon: Icon}) =>(
                 <li
                     key={href}
-                    className={`flex  gap-4 py-4 p-9 justify-start font-normal text-[#032b41] border-l-4 focus:border-green-500 ${ pathname === href ? "border-l-green-400" : "border-transparent"}`}>
-                    <Icon size={25} />
+                    className={`flex items-center gap-4 py-3 px-4 font-normal text-[#032b41] border-l-4 transition-colors cursor-pointer ${ pathname === href ? "border-l-green-400 bg-gray-200/60" : "border-transparent hover:bg-gray-200/40"}`}>
+                    <Icon size={22} />
                     <Link href={href}>{label}</Link>
             </li>
             ))}
@@ -64,12 +64,12 @@ const SideBar = () => {
             {bottomLinks.map(({href, label, icon: Icon}) =>(
                 <li
                     key={href}
-                    className={`flex  gap-4 py-4 p-9 justify-start font-normal text-[#032b41] border-l-4 focus:border-green-400 ${ pathname === href ? "border-l-green-400" : "border-transparent"}`}>
-                    <Icon size={25} />
+                    className={`flex items-center gap-4 py-3 px-4 font-normal text-[#032b41] border-l-4 transition-colors cursor-pointer ${ pathname === href ? "border-l-green-400 bg-gray-200/60" : "border-transparent hover:bg-gray-200/40"}`}>
+                    <Icon size={22} />
                     <Link href={href}>{label}</Link>
             </li>
             ) )}
-            <li className="flex gap-4 py-4 p-9 justify-start font-normal text-[#032b41] border-l-4 border-transparent">
+            <li className="flex items-center gap-4 py-3 px-4 font-normal text-[#032b41] border-l-4 border-transparent">
                 {user ? <LuLogOut size={25} /> : <LuLogIn size={25} />}
                 {user ? (
                     <button onClick={() => signOut(auth)} className="cursor-pointer">Logout</button>

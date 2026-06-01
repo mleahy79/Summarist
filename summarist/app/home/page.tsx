@@ -47,7 +47,7 @@ export default function HomePage() {
   return (
     <>
       <Nav />
-      <div className="flex justify-evenly mt-10 px-[95.5px]">
+      <div className="flex flex-col items-center md:flex-row md:justify-evenly mt-10 px-6 md:px-[95.5px]">
         <div className="flex flex-col items-start gap-6 max-w-[440px] mx-6">
           <h1 className="text-4xl font-black text-gray-800">
             Gain more knowledge <br className="hidden md:block" />
@@ -75,13 +75,13 @@ export default function HomePage() {
           />
         </figure>
       </div>
-      <div className="mx-[99px] p-[24px]">
+      <div className="mx-0 md:mx-[99px] p-0 md:p-[24px]">
         <div className="w-full flex flex-col items-center mb-10 mt-15">
           <h2 className="text-3xl font-bold text-gray-800 text-center">
             Understand books in a few minutes
           </h2>
-          <div className="flex justify-center gap-8 mt-12">
-            <div className="flex flex-col items-center gap-4 min-w-[314px] max-w-[200px] text-center">
+          <div className="flex flex-col md:flex-row justify-center gap-8 mt-12">
+            <div className="flex flex-col items-center gap-4 min-w-[314px] text-center">
               <AiFillFileText size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Read or listen
@@ -90,7 +90,7 @@ export default function HomePage() {
                 Save time by getting the core ideas from the best books.
               </p>
             </div>
-            <div className="flex flex-col items-center gap-4 max-w-[200px] min-w-[314px] text-center">
+            <div className="flex flex-col items-center gap-4 w-full min-w-[314px] text-center">
               <AiFillBulb size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Find your next read
@@ -99,7 +99,7 @@ export default function HomePage() {
                 Explore book lists and personalized recommendations.
               </p>
             </div>
-            <div className="flex flex-col items-center gap-4 max-w-[200px] min-w-[314px] text-center">
+            <div className="flex flex-col items-center gap-4 min-w-[314px] text-center">
               <AiFillAudio size={60} className="text-[#032b42]" />
               <h3 className="font-medium text-2xl text-[#032b42]">
                 Briefcasts
@@ -276,7 +276,7 @@ export default function HomePage() {
             </div>
             <div className=" flex justify-center">
               <button
-               onClick={() => dispatch(openModal())} className="bg-[#2bd97c] text-[#032b42]  min-w-[300px] h-11 rounded 
+               onClick={() => dispatch(openModal())} className="bg-[#2bd97c] text-[#032b42] w-full max-w-[300px] h-11 rounded 
               font-medium flex items-center cursor-pointer justify-center"
               >
                 Login
@@ -354,7 +354,7 @@ export default function HomePage() {
             <li className="text-[#6b7280] text-sm">Privacy Policies</li>
           </ul>
         </div>
-        <div className="py-6 text-center text-[#032b41] font-semibold text-base">
+        <div className="py-6 text-center text-[rgb(3,43,65)] font-semibold text-base">
           Copyright &copy; 2026 Summarist.
         </div>
       </footer>

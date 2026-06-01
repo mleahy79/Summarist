@@ -91,7 +91,7 @@ export default function PlayerPage() {
         onEnded={() => setIsPlaying(false)}
       />
 
-      <div className="flex justify-center whitespace-pre-line pb-28">
+      <div className="flex justify-center whitespace-pre-line pb-36 md:pb-28">
         <div className="max-w-200 p-6 flex flex-col justify-center">
           <p className="text-2xl text-[#032b41] py-6 font-bold">{book.title}</p>
           <div className="border-t border-gray-300 pt-6">
@@ -100,8 +100,36 @@ export default function PlayerPage() {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-[#042330] py-4 px-8">
-        <div className="flex items-center gap-6">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#042330] py-4 px-4 md:px-8">
+        {/* Mobile layout: two rows */}
+        <div className="flex md:hidden flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 min-w-0">
+              <Image src={book.imageLink} alt={book.title} width={40} height={40} className="rounded shrink-0" />
+              <div className="flex flex-col min-w-0">
+                <p className="text-xs text-white leading-tight truncate">{book.title}</p>
+                <p className="text-xs text-[#bac8ce] truncate">{book.author}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 shrink-0 ml-3">
+              <button onClick={() => skip(-10)} className="text-white text-3xl"><MdReplay10 /></button>
+              <button onClick={togglePlay} className="bg-white text-[#042330] rounded-full w-10 h-10 flex items-center justify-center">
+                {isPlaying
+                  ? <Pause size={18} fill="currentColor" strokeWidth={0} />
+                  : <Play size={18} fill="currentColor" strokeWidth={0} className="translate-x-0.5" />}
+              </button>
+              <button onClick={() => skip(10)} className="text-white text-3xl"><MdForward10 /></button>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-white text-xs tabular-nums w-8 text-right">{formatTime(currentTime)}</span>
+            <input type="range" min={0} max={duration || 0} value={currentTime} onChange={handleSeek} className="flex-1 accent-white h-1 cursor-pointer" />
+            <span className="text-white text-xs tabular-nums w-8">{formatTime(duration)}</span>
+          </div>
+        </div>
+
+        {/* Desktop layout: single row */}
+        <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center gap-3 pr-20 shrink-0">
             <Image src={book.imageLink} alt={book.title} width={48} height={48} className="rounded" />
             <div className="flex flex-col">
@@ -109,34 +137,18 @@ export default function PlayerPage() {
               <p className="text-xs text-[#bac8ce]">{book.author}</p>
             </div>
           </div>
-
           <div className="flex items-center px-20 gap-4 mx-auto shrink-0">
-            <button onClick={() => skip(-10)} className="text-white text-4xl hover:opacity-80 transition-opacity">
-              <MdReplay10 />
-            </button>
-            <button
-              onClick={togglePlay}
-              className="bg-white text-[#042330] rounded-full w-12 h-12 flex items-center justify-center hover:opacity-90 transition-opacity"
-            >
+            <button onClick={() => skip(-10)} className="text-white text-4xl hover:opacity-80 transition-opacity"><MdReplay10 /></button>
+            <button onClick={togglePlay} className="bg-white text-[#042330] rounded-full w-12 h-12 flex items-center justify-center hover:opacity-90 transition-opacity">
               {isPlaying
                 ? <Pause size={22} fill="currentColor" strokeWidth={0} />
                 : <Play size={22} fill="currentColor" strokeWidth={0} className="translate-x-0.5" />}
             </button>
-            <button onClick={() => skip(10)} className="text-white text-4xl hover:opacity-80 transition-opacity">
-              <MdForward10 />
-            </button>
+            <button onClick={() => skip(10)} className="text-white text-4xl hover:opacity-80 transition-opacity"><MdForward10 /></button>
           </div>
-
-          <div className="flex items-center gap-3 max-w-[480px] mr-10 pr-20 flex-1">
+          <div className="flex items-center gap-3 max-w-120 mr-10 pr-20 flex-1">
             <span className="text-white text-sm tabular-nums w-10 text-right">{formatTime(currentTime)}</span>
-            <input
-              type="range"
-              min={0}
-              max={duration || 0}
-              value={currentTime}
-              onChange={handleSeek}
-              className="flex-1 accent-white h-1 cursor-pointer"
-            />
+            <input type="range" min={0} max={duration || 0} value={currentTime} onChange={handleSeek} className="flex-1 accent-white h-1 cursor-pointer" />
             <span className="text-white text-sm tabular-nums w-10">{formatTime(duration)}</span>
           </div>
         </div>
@@ -163,10 +175,31 @@ function PlayerSkeleton() {
       </div>
 
       {/* Fixed bottom bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#042330] py-4 px-8 animate-pulse">
-        <div className="flex items-center gap-6">
-
-          {/* Book info — thumbnail + title/author */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#042330] py-4 px-4 md:px-8 animate-pulse">
+        {/* Mobile skeleton */}
+        <div className="flex md:hidden flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-gray-600 rounded shrink-0" />
+              <div className="flex flex-col gap-1">
+                <div className="h-3 w-28 bg-gray-600 rounded" />
+                <div className="h-3 w-16 bg-gray-600 rounded" />
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gray-600 rounded" />
+              <div className="w-10 h-10 bg-gray-500 rounded-full" />
+              <div className="w-8 h-8 bg-gray-600 rounded" />
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="h-3 w-8 bg-gray-600 rounded" />
+            <div className="flex-1 h-1 bg-gray-600 rounded" />
+            <div className="h-3 w-8 bg-gray-600 rounded" />
+          </div>
+        </div>
+        {/* Desktop skeleton */}
+        <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center gap-3 pr-20 shrink-0">
             <div className="w-12 h-12 bg-gray-600 rounded" />
             <div className="flex flex-col gap-1">
@@ -174,21 +207,16 @@ function PlayerSkeleton() {
               <div className="h-3 w-20 bg-gray-600 rounded" />
             </div>
           </div>
-
-          {/* Playback controls */}
           <div className="flex items-center px-20 gap-4 mx-auto shrink-0">
-            <div className="w-9 h-9 bg-gray-600 rounded" />   {/* replay */}
-            <div className="w-12 h-12 bg-gray-500 rounded-full" /> {/* play */}
-            <div className="w-9 h-9 bg-gray-600 rounded" />   {/* forward */}
+            <div className="w-9 h-9 bg-gray-600 rounded" />
+            <div className="w-12 h-12 bg-gray-500 rounded-full" />
+            <div className="w-9 h-9 bg-gray-600 rounded" />
           </div>
-
-          {/* Seek bar */}
-          <div className="flex items-center gap-3 max-w-[480px] mr-10 pr-20 flex-1">
-            <div className="h-3 w-10 bg-gray-600 rounded" />   {/* 0:00 */}
-            <div className="flex-1 h-1 bg-gray-600 rounded" /> {/* track */}
-            <div className="h-3 w-10 bg-gray-600 rounded" />   {/* total */}
+          <div className="flex items-center gap-3 max-w-120 mr-10 pr-20 flex-1">
+            <div className="h-3 w-10 bg-gray-600 rounded" />
+            <div className="flex-1 h-1 bg-gray-600 rounded" />
+            <div className="h-3 w-10 bg-gray-600 rounded" />
           </div>
-
         </div>
       </div>
     </>
